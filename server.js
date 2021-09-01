@@ -18,6 +18,10 @@ server.use("/bootstrap", express.static(path.join(__dirname,"node_modules","boot
 server.use("/bootstrap", express.static(path.join(__dirname,"node_modules","bootstrap","js")));
 
 server.use(userRoute.path, userRoute.router)
+server.use(loginRoute.path, loginRoute.router)
+server.use(regRoute.path, regRoute.router)
+
 
 server.set("view engine", "ejs")
+
 
