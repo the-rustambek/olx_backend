@@ -3,6 +3,8 @@ const server = express()
 const cookieParser =  require("cookie-parser")
 const path = require("path")
 const userRoute = require("./routes/userRoute")
+const loginRoute = require("./routes/loginRoute")
+const regRoute = require("./routes/regRoute")
 // mongo
 
 
