@@ -1,18 +1,6 @@
-<%- include("parts/header.ejs") %>
-    <div class="full-page mt-4 ">
-        <nav class="navbar navbar-light  container" style="background-color: rgb(250, 205, 4)" >
-            <div class="container-fluid">
-                <a  class="  h1  p-3 fw-bolder bg-dark" style="color:yellow">Olx</a>
-              <div class="d-flex">
-                <a class="nav-link active text-dark fw-bolder fs-6 me-3"  href="#">Home</a>
-                <a class="nav-link active  text-dark fw-bold me-3" href="#">About</a>
-                <a class="btn-outline-dark btn me-3" href="#"></a>
-                
-                <button class="btn btn-outline-dark me-2" type="button">Sign In</button>
-                
-            </div></div>
-          </nav>
-    </div>
+<%- include("parts/header") %>
+
+    
 
     <div class="content my-3  " style="padding:80px 0px;">
         <div class="container">
@@ -63,64 +51,4 @@
     </div>
     
 
-
-    <!-- footer -->
-
-    
-	<footer class="site-footer text-light  " style="padding:80px 0px; border-top:2px solid white;">
-		<div class="container">
-			<div class="row justify-content-between  section-padding">
-				<div class=" col-xl-3 col-lg-4 col-sm-6">
-					<div class="single-footer pb--40">
-						<div class="brand-footer footer-title">
-							<a  class="  h1 display-4 fw-bolder bg-dark" style="color:yellow">Olx</a>
-						</div>
-						<div class="footer-contact">
-							<p><span class="label">Address: </span><span class="text"> Toshkent Olmazor region Sebzar 35-A 62</span></p>
-							<p><span class="label">Phone:</span><span class="text">+998931487733</span></p>
-							<p><span class="label">Email:</span><span class="text">rustambek0301@gmail.com</span></p>
-						</div>
-					</div>
-				</div>
-				<div class=" col-xl-3 col-lg-2 col-sm-6">
-					<div class="single-footer pb--40">
-						<div class="footer-title">
-							<h3>Information</h3>
-						</div>
-						<ul class="footer-list normal-list list-unstyled ">
-							<li><a  class="text-decoration-none" href="">Prices drop</a></li>
-							<li><a  class="text-decoration-none" href="">New products</a></li>
-							<li><a  class="text-decoration-none" href="">Best sales</a></li>
-							<li><a  class="text-decoration-none" href="">Contact us</a></li>
-							<li><a  class="text-decoration-none" href="">Sitemap</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class=" col-xl-2 col-lg-2 col-sm-6">
-					<div class="single-footer pb--40">
-						<div class="footer-title">
-							<h3>Extras</h3>
-						</div>
-						<ul class="footer-list normal-list list-unstyled text-decoration-none">
-							<li><a  class="text-decoration-none" href="">Delivery</a></li>
-							<li><a  class="text-decoration-none" href="">About Us</a></li>
-							<li><a  class="text-decoration-none" href="">Stores</a></li>
-							<li><a  class="text-decoration-none" href="">Contact us</a></li>
-							<li><a  class="text-decoration-none" href="">Sitemap</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class=" col-xl-4 col-lg-4 col-sm-6">
-					<div class="footer-title">
-						<h3>Newsletter Subscribe</h3>
-					</div>
-					<div class="newsletter-form mb--30  mt-3">
-						<form >
-							<input type="email" class="form-control" placeholder="Enter Your Email Address Here...">
-							<button class="btn btn btn-outline-warning mt-2 text-light w-100">Subscribe</button>
-						</form>
-					</div>
-				
-				</div>
-			</div>
-		</div>
+    <%- include("parts/footer") %>

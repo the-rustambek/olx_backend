@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Olx.uz</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body class="bg-dark">
+<%- include("parts/header") %>
+
 <div class="login" >
     <div  class="container text-light d-flex justify-content-center align-items-center flex-direction-column " style="height:100vh;width:40vw;" >
         
             <!-- Login Form s-->
-            <form >
+            <form method="POST" action="/reg" >
                 
                     <h4 class="login-title h1" style="color:rgb(199, 187, 17)">Returning Customer</h4>
                     <p><span class="font-weight-bold">I am a returning customer</span></p>
@@ -29,11 +22,13 @@
                         
                      
                         
-                            <button href="#" class="btn btn-outline-warning mt-3 fw-800 col-12">Login</button>
-                        
+                            <button  class="btn btn-outline-warning mt-3 fw-800 col-12">Login</button>
+                            <p class="mt-2">Akkautingiz bormi? Unda <a href="/"> kiring</a></p>
                     
                 
             </form>
         </div>
     </div>
 </div>
+
+<%- include("parts/footer") %>
