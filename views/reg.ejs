@@ -1,29 +1,35 @@
 <%- include("parts/header") %>
 
-<div class="login" >
+
+<div class="reg" >
     <div  class="container text-light d-flex justify-content-center align-items-center flex-direction-column " style="height:100vh;width:40vw;" >
         
-            <!-- Login Form s-->
-            <form method="POST" action="/reg" >
+            <!-- reg Form s-->
+
+            <form method="POST" action="/reg" >   
+                 <!-- action="/login" -->
+                    <h4 class="login-title h1" style="color:rgb(199, 187, 17)">Create account</h4>
+                    <p><span class="font-weight-bold">I am a new customer</span></p>
+
                 
-                    <h4 class="login-title h1" style="color:rgb(199, 187, 17)">Returning Customer</h4>
-                    <p><span class="font-weight-bold">I am a returning customer</span></p>
                     <div class="row">
                         
-                         
+                            <label class="my-2 fs-4 " for="email">Full Name</label>
+                            <input required class="mb-0 form-control col-10" type="text" name="name" id="name"
+                                placeholder="Enter your full name">
                         
-                            <label class="my-2 fs-4"  for="email">Enter Yo2222222222222ur Email Address Here...
-                            </label>
+                        
+                            <label class="my-2 fs-4"  for="email">Email</label>
                             <input required class="mb-0 form-control col-10" type="email"name="email" id="email" placeholder="Enter Your Email Address Here..">
                         
                         
                             <label class="my-2 fs-4"  for="password">Password</label>
-                            <input required class="mb-0 form-control col-10"name="password" type="password" id="password" placeholder="Enter your password">
+                            <input required class="mb-0 form-control col-10" name="password" type="password" id="password" placeholder="Enter your password">
                         
                      
                         
-                            <button  class="btn btn-outline-warning mt-3 fw-800 col-12">Login</button>
-                            <p class="mt-2">Akkautingiz bormi? Unda <a href="/"> kiring</a></p>
+                            <button  class="btn btn-outline-warning mt-3 fw-800 col-12">Register</button>
+                            <p class="mt-3">Akkautingiz bormi? Unda <a href="/login"> kiring</a></p>
                     
                 
             </form>
