@@ -1,5 +1,5 @@
 <%- include("parts/header") %>
-
+<% var error  %> 
 
 <div class="reg" >
     <div  class="container text-light d-flex justify-content-center align-items-center flex-direction-column " style="height:100vh;width:40vw;" >
@@ -11,7 +11,12 @@
                     <h4 class="login-title h1" style="color:rgb(199, 187, 17)">Create account</h4>
                     <p><span class="font-weight-bold">I am a new customer</span></p>
 
-                
+                    <% if(error) {%> 
+                        <div class="alert my-2 alert-danger">
+                            <%= error  %> 
+                        </div>
+                    <% } %> 
+
                     <div class="row">
                         
                             <label class="my-2 fs-4 " for="email">Full Name</label>

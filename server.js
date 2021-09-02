@@ -6,7 +6,7 @@ const userRoute = require("./routes/userRoute");
 const mongo = require("./modules/mongo");
 
 
-server.listen(3030);
+server.listen(3333);
 server.use(express.json());
 server.use(express.urlencoded({
     extended:true,
@@ -24,7 +24,7 @@ server.set("view engine", "ejs");
 (async function(){
     const db = await mongo();
     await server.use((req,res,next) =>{
-        req.db = db;
+        req.db = db; // req.db ni mongo yani databasa bilan boglab shu nom bilan nomlayapti, 2 qator repada chaqirgan edi mongo ni
         next();
     });
    await server.use(userRoute.path, userRoute.router);

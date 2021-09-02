@@ -25,9 +25,11 @@ router.post("/login", async(req,res) =>{
         });
         
     }
-    let user= await req.db.users.findOne({
+    let user = await req.db.users.findOne({ // shu email ga boshqa odam ro'yhatdan o'tganmi yo'qmi shuni qidirib tekshirib ko'ramiz
         email:email.toLowerCase(),
-    })
+    });
+
+    console.log(user)
 });
 
 
