@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const {createCrypt} = require("../modules/bcrypt")
 const {compareCrypt} = require("../modules/bcrypt")
+const {checkToken} = require("../modules/jwt")
 const {createToken} = require("../modules/jwt")
 const {ObjectId} = require("mongodb");
 
@@ -50,7 +51,7 @@ router.post("/reg", async (req, res) => {
         fullname:fullname.toLowerCase(),
          email:email.toLowerCase(),
             password: await createCrypt(password),
-            data = [],
+            data: [],
     });
 
         // console.log(user)
@@ -119,37 +120,46 @@ router.post("/ads", AuthUserMiddleware,async (req, res) =>{
     const {user_id} = req.user;
 
     const { adsName, number, address, img,price,adsAbout} = req.body
+    // console.log(req.body)
+    // console.log(_id)
 
-    await req.db.users.updateOne({
+    await req.db.users.updateOne(
+        {
         _id: ObjectId(user_id)
     },
+    
     {
-        // each qiymatning har bir elementini  alohida qo'shish uchun 
+       
         $push: {
             data:{
-                $each: [{
+                $each: [{   // each qiymatning har bir elementini  alohida qo'shish uchun 
                     adsName: req.body.adsName.toLowerCase(),
                     number: req.body.number.toLowerCase(),
-                    address: req.body.address.toLowerCase(),
+                    address: req.body.address,
                     img: req.body.img.src,   // mana shu joyida qandaydir error chiqishi mumkin
                     price: req.body.price,
                     adsAbout: req.body.adsAbout.toLowerCase(),
+                    time: new Date().toLocaleString(),
                 }],
             }
         }
+        
     })
+res.redirect("/")  // mana shu joyga balkim index    qo'yilishi kerak edimi
 
+});
 
-})
-
-router.get("/ads",AuthUserMiddleware,(req,res)=>{
+router.get("/ads",AuthUserMiddleware,async(req,res)=>{
     const {user_id} = req.user
-
+// console.log(req.user)
     let info = await req.db.users.findOne({
         _id: ObjectId(user_id),
     })
     let data = info.data;
+    // console.log(req.body)
+    // console.log(req.body.adsName)
     
+
     res.render("ads",{
         data,
     })
@@ -160,5 +170,5 @@ router.get("/ads",AuthUserMiddleware,(req,res)=>{
 module.exports = {
     router,
     path: "/",
-    data,
+    
 }
