@@ -113,11 +113,17 @@ else{
 };
 
 
-router.get("/ads",AuthUserMiddleware,(req,res)=>{
+// router.get("/ads",AuthUserMiddleware,(req,res)=>{
+//     res.render("ads")
+// });
+
+
+
+
+
+router.get("/ads",(req,res) =>{
     res.render("ads")
-});
-
-
+})
 
 module.exports = {
     router,

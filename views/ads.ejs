@@ -1,5 +1,75 @@
 <%- include("parts/header")  %> 
 
-<h1 class="text-danger fw-bolder fs-1 text-center display-1">Reklama berish bo'limi</h1>
+<div class="ads text-light" style="padding:80px">
+    <div class="container ">
+        
+
+    
+      
+            
+             
+          
+              <div class="row  d-flex justify-content-center align-items-center">
+                <h2 class= "text-center" style="color:rgb(250, 205, 4)">Post Ads</h2>
+                
+                <div class="col-md-10 col-lg-10 g-3">
+                    
+                  <form class="needs-validation row g-3" novalidate>
+                    
+                      <div class="col-sm-6">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" placeholder="First name" name="firstName" id="firstName" placeholder="" value="" required>
+                      
+                      </div>
+          
+               
+                    
+                      <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Phone number</label>
+                        <input type="tel" class="form-control" name='number' id="lastName" placeholder="telephone" value="" required>
+                     
+                      </div>
+          
+          
+                      <div class="col-12">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St" required>
+                      
+                      </div>
+          
+                      <div class="col-sm-6">
+                        <label for="formFile" class="form-label">Image upload</label>
+                        <input class="form-control" type="file" id="formFile"name="img" required>
+                      </div>
+                      <div class="col-sm-6">
+                        <label for="number" class="form-label">Price</label>
+                        <input class="form-control" placeholder="Cost" name="price" type="number" id="formFile">
+                      </div>
+                      <div class=" col-12">
+                        <label for="About" class="form-label">Description</label>
+                        <textarea class="form-control"name="description" >
+
+                        </textarea>
+                      </div>
+                  
+                    
+          
+                    <hr class="my-4">
+          
+                  
+          
+
+          
+                    <button class="w-100 btn btn-outline-primary btn-lg" type="submit">Get started</button>
+                  </form>
+                </div>
+              </div>
+            
+          
+          
+          
+        
+    </div>
+</div>
 
 <%- include("parts/footer")  %> 
