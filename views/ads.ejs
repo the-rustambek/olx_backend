@@ -1,4 +1,5 @@
 <%- include("parts/header")  %> 
+<%- var data %>
 
 <div class="ads text-light" style="padding:80px">
     <div class="container ">
@@ -14,18 +15,18 @@
                 
                 <div class="col-md-10 col-lg-10 g-3">
                     
-                  <form class="needs-validation row g-3" novalidate>
+                  <form class="needs-validation row g-3" enctype="multipart/form-data" novalidate>
                     
                       <div class="col-sm-6">
-                        <label for="firstName" class="form-label">First name</label>
-                        <input type="text" class="form-control" placeholder="First name" name="firstName" id="firstName" placeholder="" value="" required>
+                        <label for="adsName" class="form-label">Ads name</label>
+                        <input type="text" class="form-control" placeholder="ads name" name="adsName" id="firstName" placeholder="" value="" required>
                       
                       </div>
           
                
                     
                       <div class="col-sm-6">
-                        <label for="lastName" class="form-label">Phone number</label>
+                        <label for="Phone number" class="form-label">Phone number</label>
                         <input type="tel" class="form-control" name='number' id="lastName" placeholder="telephone" value="" required>
                      
                       </div>
@@ -46,8 +47,8 @@
                         <input class="form-control" placeholder="Cost" name="price" type="number" id="formFile">
                       </div>
                       <div class=" col-12">
-                        <label for="About" class="form-label">Description</label>
-                        <textarea class="form-control"name="description" >
+                        <label for="About" class="form-label">Ads about</label>
+                        <textarea class="form-control"name="adsAbout" >
 
                         </textarea>
                       </div>

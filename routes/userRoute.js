@@ -2,6 +2,8 @@ const router = require("express").Router();
 const {createCrypt} = require("../modules/bcrypt")
 const {compareCrypt} = require("../modules/bcrypt")
 const {createToken} = require("../modules/jwt")
+const {ObjectId} = require("mongodb");
+
 
 router.get("/", (req, res) => {
     // console.log(req.db)
@@ -48,6 +50,7 @@ router.post("/reg", async (req, res) => {
         fullname:fullname.toLowerCase(),
          email:email.toLowerCase(),
             password: await createCrypt(password),
+            data = [],
     });
 
         // console.log(user)
@@ -112,20 +115,50 @@ else{
 }
 };
 
+router.post("/ads", AuthUserMiddleware,async (req, res) =>{
+    const {user_id} = req.user;
 
-// router.get("/ads",AuthUserMiddleware,(req,res)=>{
-//     res.render("ads")
-// });
+    const { adsName, number, address, img,price,adsAbout} = req.body
+
+    await req.db.users.updateOne({
+        _id: ObjectId(user_id)
+    },
+    {
+        // each qiymatning har bir elementini  alohida qo'shish uchun 
+        $push: {
+            data:{
+                $each: [{
+                    adsName: req.body.adsName.toLowerCase(),
+                    number: req.body.number.toLowerCase(),
+                    address: req.body.address.toLowerCase(),
+                    img: req.body.img.src,   // mana shu joyida qandaydir error chiqishi mumkin
+                    price: req.body.price,
+                    adsAbout: req.body.adsAbout.toLowerCase(),
+                }],
+            }
+        }
+    })
 
 
-
-
-
-router.get("/ads",(req,res) =>{
-    res.render("ads")
 })
+
+router.get("/ads",AuthUserMiddleware,(req,res)=>{
+    const {user_id} = req.user
+
+    let info = await req.db.users.findOne({
+        _id: ObjectId(user_id),
+    })
+    let data = info.data;
+    
+    res.render("ads",{
+        data,
+    })
+});
+
+
 
 module.exports = {
     router,
-    path: "/"
+    path: "/",
+    data,
 }
