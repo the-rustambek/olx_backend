@@ -160,7 +160,7 @@ router.get("/ads",AuthUserMiddleware,async(req,res)=>{
     let info = await req.db.users.findOne({
         _id: ObjectId(user_id),
     })
-    console.log(info.data)
+    // console.log(info.data)
     let data = info.data;
 
     // console.log(req.body)
