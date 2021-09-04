@@ -124,7 +124,7 @@ router.post("/ads", AuthUserMiddleware,async (req, res) =>{
     const {user_id} = req.user;
     // console.log(req.body.adsName)
     const { adsName, number, address, img,price,adsAbout} = req.body
-    console.log(req.body)
+    // console.log(req.body)
     // console.log(_id)
 
     await req.db.users.updateOne(
@@ -140,7 +140,7 @@ router.post("/ads", AuthUserMiddleware,async (req, res) =>{
                     adsName: req.body.adsName,
                     number: req.body.number,
                     address: req.body.address,
-                    // img: req.body.img.src,   // mana shu joyida qandaydir error chiqishi mumkin
+                    img: req.body.img["src"],   // mana shu joyida qandaydir error chiqishi mumkin
                     price: req.body.price,
                     adsAbout: req.body.adsAbout,
                     time: new Date().toLocaleString(),
@@ -150,7 +150,7 @@ router.post("/ads", AuthUserMiddleware,async (req, res) =>{
         
     })
 res.redirect("/ads")  // mana shu joyga balkim index    qo'yilishi kerak edimi
-
+// console.log(data)
 });
 
 
@@ -160,12 +160,14 @@ router.get("/ads",AuthUserMiddleware,async(req,res)=>{
     let info = await req.db.users.findOne({
         _id: ObjectId(user_id),
     })
-    // console.log(info.data)
+    // console.log(data)
+    
     let data = info.data;
 
     // console.log(req.body)
     // console.log(req.body.adsName)
-    // console.log(data)
+    console.log(data)
+    
     
 
     res.render("ads",{

@@ -19,8 +19,6 @@ server.use("/bootstrap", express.static(path.join(__dirname,"node_modules","boot
 
 
 
-server.set("view engine", "ejs");
-
 (async function(){
     const db = await mongo();
     await server.use((req,res,next) =>{
@@ -31,4 +29,6 @@ server.set("view engine", "ejs");
 })();
 
 
+
+server.set("view engine", "ejs");
 
