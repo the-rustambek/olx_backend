@@ -6,8 +6,7 @@
   <div class="container">
     <h2 class="text-center text-light h1  mb-4"> List of ads</h2>
     <ul class="content-list  d-flex justify-content-between align-items-center flex-wrap">
-    
-
+  
 
 
       <% data.forEach(function(item)  { %>
@@ -30,12 +29,17 @@
           </div>
         </div>
       </li>
-
       <% }) %>
 
     </ul>
   </div>
 </div>
 
+
+<div
+  class="ldBar"
+  data-stroke="data:ldbar/res,
+  gradient(0,1,#f99,#ff9)"
+></div>
 
 <%- include("parts/footer") %>

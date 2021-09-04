@@ -138,7 +138,7 @@ router.post("/ads", AuthUserMiddleware,async (req, res) =>{
             data:{
                 $each: [{   // each qiymatning har bir elementini  alohida qo'shish uchun 
                     adsName: req.body.adsName,
-                    number: req.body.number,
+                    number:  req.body.number,
                     address: req.body.address,
                     img: req.body.img["src"],   // mana shu joyida qandaydir error chiqishi mumkin
                     price: req.body.price,
@@ -160,13 +160,13 @@ router.get("/ads",AuthUserMiddleware,async(req,res)=>{
     let info = await req.db.users.findOne({
         _id: ObjectId(user_id),
     })
-    // console.log(data)
+    // console.log(info)
     
     let data = info.data;
 
     // console.log(req.body)
     // console.log(req.body.adsName)
-    console.log(data)
+    // console.log(data)
     
     
 
