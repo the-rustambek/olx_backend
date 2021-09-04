@@ -6,7 +6,7 @@ const userRoute = require("./routes/userRoute");
 const mongo = require("./modules/mongo");
 
 
-server.listen(3333);
+server.listen(5555);
 server.use(express.json());
 server.use(express.urlencoded({
     extended:true,
