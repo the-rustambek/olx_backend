@@ -3,10 +3,13 @@ const server = express();
 const cookieParser =  require("cookie-parser");
 const path = require("path");
 const userRoute = require("./routes/userRoute");
+// const aboutRoute =  require("./routes/aboutRoute")
+// const adsRoute =  require("./routes/adsRoute")
+// const loginRegRoute =  require("./routes/loginRegRoute")
 const mongo = require("./modules/mongo");
 
 
-server.listen(5555);
+server.listen(3030);
 server.use(express.json());
 server.use(express.urlencoded({
     extended:true,
@@ -14,8 +17,8 @@ server.use(express.urlencoded({
 
 server.use(cookieParser());
 server.use("/uploads",express.static(path.join(__dirname, "public"))) ;
-server.use("/bootstrap", express.static(path.join(__dirname,"node_modules","bootstrap","dist")));
-server.use("/bootstrap", express.static(path.join(__dirname,"node_modules","bootstrap","js")));
+server.use("/bootstrap/css", express.static(path.join(__dirname,"node_modules","bootstrap","dist", "css")));
+server.use("/bootstrap/js", express.static(path.join(__dirname,"node_modules","bootstrap","dist", "js")));
 
 
 
@@ -26,6 +29,9 @@ server.use("/bootstrap", express.static(path.join(__dirname,"node_modules","boot
         next();
     });
    await server.use(userRoute.path, userRoute.router);
+//    await server.use(aboutRoute.path, aboutRoute.router);
+//    await server.use(adsRoute.path, adsRoute.router);
+//    await server.use(loginRegRoute.path, loginRegRoute.router);
 })();
 
 

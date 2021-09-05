@@ -1,16 +1,100 @@
 <%- include("parts/header") %>
 <% var data = data || [] %> 
+<% var img =  img || "https://images.prismic.io/frameworkmarketplace/cca31de3-3b75-4932-af96-7646b7eba6c7__DSC3630-Edit-cropped.jpg?auto=compress,format" %> 
 
 
 <div class="content my-3  " style="padding:80px 0px;">
   <div class="container">
     <h2 class="text-center text-light h1  mb-4"> List of ads</h2>
-    <ul class="content-list  d-flex justify-content-between align-items-center flex-wrap">
+    <ul class="content-list  d-flex justify-content-evenly align-items-center flex-wrap">
   
+      <li class="content-item mt-3 ">
+        <div class="card" style="width:19rem;">
+          <img style="height:200px; width:302px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmaxOlju2oJuXXQR0sQ9DQ7pTwGqxp0Z_FBw&usqp=CAU" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+            HP  Noutbuk sotiladi
+            </h5>
+            <p class="card-text">
+              HP Cor i9 , SSD 256 RAM 16 
+            </p>
+            <p>Narxi: 100000 so'm </p>
+            <p>Toshkent Yunusobod </p>
+            <div class="d-flex justify-content-between">
+                <a href="tel:+998931487733 "class=" btn btn-primary">+998931487733 </a>
 
+              <p class="text-info ms-2 mt-2"> 06/09/21 19:40 </p>
+            </div>
+          </div>
+        </div>
+      </li>
+     
+     
+      <li class="content-item mt-3 ">
+        <div class="card" style="width:19rem;">
+          <img style="height:200px; width:302px;" src=" https://www.idgcdn.com.au/dimg/990x990/dimg/microsoft_windows_10_s_surface_laptop_1800x1200-100814366-orig_1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+            HP  Noutbuk sotiladi
+            </h5>
+            <p class="card-text">
+              HP Cor i9 , SSD 256 RAM 16 
+            </p>
+            <p>Narxi: 100000 so'm </p>
+            <p>Toshkent Yunusobod </p>
+            <div class="d-flex justify-content-between">
+                <a href="tel:+998931487733 "class=" btn btn-primary">+998931487733 </a>
 
-      <% data.forEach(function(item)  { %>
-      <li class="content-item mt-3">
+              <p class="text-info ms-2 mt-2"> 06/09/21 19:40 </p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    
+
+      <li class="content-item mt-3 ">
+        <div class="card" style="width:19rem;">
+          <img style="height:200px; width:302px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4c9U5nhtKQ4yYr3memRj9uHxq9vsBVs3VSQ&usqp=CAU" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+            HP  Noutbuk sotiladi
+            </h5>
+            <p class="card-text">
+              HP Cor i9 , SSD 256 RAM 16 
+            </p>
+            <p>Narxi: 100000 so'm </p>
+            <p>Toshkent Yunusobod </p>
+            <div class="d-flex justify-content-between">
+                <a href="tel:+998931487733 "class=" btn btn-primary">+998931487733 </a>
+
+              <p class="text-info ms-2 mt-2"> 06/09/21 19:40 </p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="content-item mt-3 ">
+        <div class="card" style="width:19rem;">
+          <img style="height:200px; width:302px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZXGofi54M6C-cEI7CJkoF7CGrofCjjPwOeUu05j0XXUtedWZM55gJVgip2XQsEGVh_JQ&usqp=CAU" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+            HP  Noutbuk sotiladi
+            </h5>
+            <p class="card-text">
+              HP Cor i9 , SSD 256 RAM 16 
+            </p>
+            <p>Narxi: 100000 so'm </p>
+            <p>Toshkent Yunusobod </p>
+            <div class="d-flex justify-content-between">
+                <a href="tel:+998931487733 "class=" btn btn-primary">+998931487733 </a>
+
+              <p class="text-info ms-2 mt-2"> 06/09/21 19:40 </p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% data.forEach((item)  => { %>
+      <li class="content-item mt-3 ">
         <div class="card" style="width:19rem;">
           <img src="<%= item.img  %>" class="card-img-top" alt="...">
           <div class="card-body">
@@ -23,7 +107,8 @@
             <p>Narxi: <%= item.price   %> so'm </p>
             <p><%= item.address  %> </p>
             <div class="d-flex justify-content-between">
-              <a href="tel:<%= item.number  %> class=" btn btn-primary"><%= item.number  %> </a>
+                <a href="tel:<%= item.number  %> "class=" btn btn-primary"><%= item.number  %> </a>
+
               <p class="text-info ms-2 mt-2"><%= item.time  %> </p>
             </div>
           </div>
@@ -36,10 +121,5 @@
 </div>
 
 
-<div
-  class="ldBar"
-  data-stroke="data:ldbar/res,
-  gradient(0,1,#f99,#ff9)"
-></div>
 
 <%- include("parts/footer") %>

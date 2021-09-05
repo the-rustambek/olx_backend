@@ -14,7 +14,7 @@
                     
                       <div class="col-sm-6">
                         <label for="adsName" class="form-label">Ads name</label>
-                        <input type="text" class="form-control" placeholder="ads name" name="adsName" id="firstName" placeholder=""  required   />
+                        <input type="text" minlength="4" class="form-control" placeholder="ads name" name="adsName" id="firstName" placeholder=""  required   />
                       
                       </div>
           
@@ -22,7 +22,7 @@
                     
                       <div class="col-sm-6">
                         <label for="Phone number" class="form-label">Phone number</label>
-                        <input type="tel" class="form-control" name="number" id="lastName" placeholder="+998931487733" value="" required />
+                        <input type="tel" class="form-control" min="8"  name="number" id="lastName" placeholder="+998931487733" value="" required />
                      
                       </div>
           
@@ -42,7 +42,7 @@
                         <input class="form-control" placeholder="Cost" name="price" type="number" id="formFile" />
                       </div>
                       <div class="col-12">
-                        <label for="About" class="form-label">Ads about</label>
+                        <label for="About"minlength="5" class="form-label">Ads about</label>
                         <textarea class="form-control"name="adsAbout" required />
 
                         </textarea>
