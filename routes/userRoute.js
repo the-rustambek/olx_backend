@@ -132,7 +132,7 @@ async function AuthUserMiddleware(req, res, next) { //global middleware
 
 router.post("/ads", AuthUserMiddleware, async (req, res) => {
     const {user_id} = req.user;
-    const { adsName,number,address,img,price,adsAbout} = req.body
+    const { adsName,number,address,file,price,adsAbout} = req.body
 
     await req.db.users.updateOne({
             _id: ObjectId(user_id)
@@ -143,7 +143,7 @@ router.post("/ads", AuthUserMiddleware, async (req, res) => {
                         adsName: req.body.adsName,
                         number: req.body.number,
                         address: req.body.address,
-                        img: req.body.img, // mana shu joyida qandaydir error chiqishi mumkin
+                        file: req.body.file, // mana shu joyida qandaydir error chiqishi mumkin
                         price: req.body.price,
                         adsAbout: req.body.adsAbout,
                         time: new Date().toLocaleString(),
