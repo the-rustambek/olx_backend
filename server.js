@@ -8,7 +8,7 @@ const userRoute = require("./routes/userRoute");
 // const loginRegRoute =  require("./routes/loginRegRoute")
 const mongo = require("./modules/mongo");
 
-// const expressFileUpload =  require("express-fileupload")
+const expressFileUpload =  require("express-fileupload")
 
 
 server.listen(3030);

@@ -96,7 +96,8 @@
       <% data.forEach((item)  => { %>
       <li class="content-item mt-3 ">
         <div class="card" style="width:19rem;">
-          <%= item.file  %>
+          
+          <img src="/public/files/<%= item.file  %> " alt="">
           <div class="card-body">
             <h5 class="card-title">
               <%= item.adsName  %>

@@ -14,6 +14,8 @@ const {
 const {
     ObjectId
 } = require("mongodb");
+const expressFileUpload =require("express-fileupload")
+const path = require("path")
 
 
 router.get("/about", (req, res) => {
@@ -130,8 +132,9 @@ async function AuthUserMiddleware(req, res, next) { //global middleware
 
 
 
-router.post("/ads", AuthUserMiddleware, async (req, res) => {
+router.post("/ads", expressFileUpload(), async (req, res) => {
     const {user_id} = req.user;
+    // console.log(user_id)
     const { adsName,number,address,file,price,adsAbout} = req.body
 
     await req.db.users.updateOne({
@@ -143,7 +146,7 @@ router.post("/ads", AuthUserMiddleware, async (req, res) => {
                         adsName: req.body.adsName,
                         number: req.body.number,
                         address: req.body.address,
-                        file: req.body.file, // mana shu joyida qandaydir error chiqishi mumkin
+                        file: req.files.file.name, // mana shu joyida qandaydir error chiqishi mumkin
                         price: req.body.price,
                         adsAbout: req.body.adsAbout,
                         time: new Date().toLocaleString(),
@@ -152,6 +155,7 @@ router.post("/ads", AuthUserMiddleware, async (req, res) => {
             }
 
         })
+        req.files.file.mv(path.join(__dirname,"public", "files", req.files.file.name))    
     res.redirect("/") // mana shu joyga balkim index    qo'yilishi kerak edimi
     // console.log(data)
 });
