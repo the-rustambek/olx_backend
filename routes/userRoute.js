@@ -152,7 +152,7 @@ router.post("/ads", AuthUserMiddleware, async (req, res) => {
             }
 
         })
-    // res.redirect("/") // mana shu joyga balkim index    qo'yilishi kerak edimi
+    res.redirect("/") // mana shu joyga balkim index    qo'yilishi kerak edimi
     // console.log(data)
 });
 
@@ -162,6 +162,7 @@ router.get("/", AuthUserMiddleware, async (req, res) => {
     let info = await req.db.users.findOne({
         _id: new ObjectId(user_id),
     })
+    console.log(info);
     let data = await info.data; 
     console.log("info") 
   res.render("index", {
