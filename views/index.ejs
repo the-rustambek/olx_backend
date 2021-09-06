@@ -1,6 +1,6 @@
 <%- include("parts/header") %>
 <% var data = data || [] %> 
-<% var img =  img || "https://images.prismic.io/frameworkmarketplace/cca31de3-3b75-4932-af96-7646b7eba6c7__DSC3630-Edit-cropped.jpg?auto=compress,format" %> 
+
 
 
 <div class="content my-3  " style="padding:80px 0px;">
@@ -97,7 +97,7 @@
       <li class="content-item mt-3 ">
         <div class="card" style="width:19rem;">
           
-          <img src="/public/files/<%= item.file  %> " alt="">
+          <img src="/files/<%= item.file  %> " alt="">
           <div class="card-body">
             <h5 class="card-title">
               <%= item.adsName  %>

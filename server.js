@@ -8,17 +8,17 @@ const userRoute = require("./routes/userRoute");
 // const loginRegRoute =  require("./routes/loginRegRoute")
 const mongo = require("./modules/mongo");
 
-const expressFileUpload =  require("express-fileupload")
+// const expressFileUpload =  require("express-fileupload")
 
 
-server.listen(3030);
+server.listen(6235);
 server.use(express.json());
 server.use(express.urlencoded({
     extended:true,
 }));
 
 server.use(cookieParser());
-server.use("/uploads",express.static(path.join(__dirname, "public"))) ;
+server.use(express.static(path.join(__dirname, "public"))) ;
 server.use("/bootstrap/css", express.static(path.join(__dirname,"node_modules","bootstrap","dist", "css")));
 server.use("/bootstrap/js", express.static(path.join(__dirname,"node_modules","bootstrap","dist", "js")));
 
@@ -30,7 +30,7 @@ server.use("/bootstrap/js", express.static(path.join(__dirname,"node_modules","b
         req.db = db; // req.db ni mongo yani databasa bilan boglab shu nom bilan nomlayapti, 2 qator repada chaqirgan edi mongo ni
         next();
     });
-   await server.use(userRoute.path, userRoute.router);
+    server.use(userRoute.path, userRoute.router);
 //    await server.use(aboutRoute.path, aboutRoute.router);
 //    await server.use(adsRoute.path, adsRoute.router);
 //    await server.use(loginRegRoute.path, loginRegRoute.router);

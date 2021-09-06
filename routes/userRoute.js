@@ -14,10 +14,8 @@ const {
 const {
     ObjectId
 } = require("mongodb");
-const expressFileUpload =require("express-fileupload")
+const expressFileUpload= require("express-fileupload")
 const path = require("path")
-
-
 router.get("/about", (req, res) => {
     res.render("about")
 })
@@ -33,11 +31,7 @@ router.get("/reg", (req, res) => {
 
 router.post("/reg", async (req, res) => {
     // console.log(req.body)
-    const {
-        email,
-        password,
-        fullname
-    } = req.body;
+    const {email,password,fullname} = req.body;
 
     if (!(email && password)) {
         res.render("login", {
@@ -104,7 +98,7 @@ router.post("/login", async (req, res) => {
         user_id: user._id,
     });
 
-    res.cookie("token", token).redirect("/")
+    res.cookie("token", token).redirect("/index")
 
 
 });
@@ -115,6 +109,7 @@ router.post("/login", async (req, res) => {
 async function AuthUserMiddleware(req, res, next) { //global middleware
     if (!req.cookies.token) {
         res.redirect("/login");
+        return
     }
 
     const isTrust = checkToken(req.cookies.token);
@@ -127,16 +122,18 @@ async function AuthUserMiddleware(req, res, next) { //global middleware
         next()
     } else {
         res.redirect("/login")
+        return 
     }
 };
 
 
 
-router.post("/ads", expressFileUpload(), async (req, res) => {
+router.post("/ads", AuthUserMiddleware,expressFileUpload(), async (req, res) => {
     const {user_id} = req.user;
-    // console.log(user_id)
-    const { adsName,number,address,file,price,adsAbout} = req.body
+    const { adsName,number,address,img,price,adsAbout} = req.body;
 
+    console.log(req.files);
+ req.files.file.mv(path.join(__dirname,".." ,"public","files",req.files.file.name))
     await req.db.users.updateOne({
             _id: ObjectId(user_id)
         },{
@@ -155,19 +152,29 @@ router.post("/ads", expressFileUpload(), async (req, res) => {
             }
 
         })
-        req.files.file.mv(path.join(__dirname,"public", "files", req.files.file.name))    
     res.redirect("/") // mana shu joyga balkim index    qo'yilishi kerak edimi
     // console.log(data)
 });
 
-
 router.get("/", AuthUserMiddleware, async (req, res) => {
-    const {user_id} = req.user
+    const {user_id} = req.user;
     let info = await req.db.users.findOne({
-        _id: new ObjectId(user_id),
+        _id:  ObjectId(user_id),
     })
-    console.log(info);
-    let data = await info.data; 
+    let data =  info.data; 
+    console.log("info") 
+  res.render("index", {
+        data,
+    })
+});
+
+
+router.get("/index", AuthUserMiddleware, async (req, res) => {
+    const {user_id} = req.user;
+    let info = await req.db.users.findOne({
+        _id:  ObjectId(user_id),
+    })
+    let data =  info.data; 
     console.log("info") 
   res.render("index", {
         data,
