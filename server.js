@@ -3,6 +3,7 @@ const server = express();
 const cookieParser =  require("cookie-parser");
 const path = require("path");
 const userRoute = require("./routes/userRoute");
+const PORT = process.env.PORT || 3333;
 // const aboutRoute =  require("./routes/aboutRoute")
 // const adsRoute =  require("./routes/adsRoute")
 // const loginRegRoute =  require("./routes/loginRegRoute")
@@ -11,7 +12,10 @@ const mongo = require("./modules/mongo");
 // const expressFileUpload =  require("express-fileupload")
 
 
-server.listen(6235);
+server.listen(PORT, () =>{
+    console.log(`Server Ready at ${PORT}`);
+});
+
 server.use(express.json());
 server.use(express.urlencoded({
     extended:true,
